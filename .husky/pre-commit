@@ -1,0 +1,6 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+# To see if an error is caused by Husky scripts, uncomment line 4. "It's working" will print if everything in Husky is working correctly
+# echo "It's working" && exit 1
+
+npx lint-staged
