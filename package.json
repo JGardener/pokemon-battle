@@ -32,7 +32,7 @@
 	"lint-staged": {
 		"*.ts": [
 			"eslint",
-			"prettier-write"
+			"prettier --write"
 		],
 		"*.tsx": [
 			"eslint",
