@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 import { DisplayCard } from "./components/DisplayCard/DisplayCard";
 import { fetchSingleCharacter } from "./utils/fetchFunctions";
@@ -7,7 +7,12 @@ const App = () => {
   const [nameInputValue, setNameInputValue] = useState<string>("");
   const [entities, setEntities] = useState<any[]>([]);
 
-  const handleSubmit = async () => {
+  const handleNameInput = (event: ChangeEvent<HTMLInputElement>) => {
+    setNameInputValue(event.target.value);
+  };
+
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
     setEntities([...entities, await fetchSingleCharacter(nameInputValue)]);
     setNameInputValue("");
   };
@@ -15,21 +20,14 @@ const App = () => {
   return (
     <>
       <div>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
+        <form onSubmit={handleSubmit}>
           <input
             value={nameInputValue}
             type="text"
             placeholder="Type a name..."
-            onChange={(e) => {
-              setNameInputValue(e.target.value);
-            }}
+            onChange={handleNameInput}
           />
-          <button onClick={handleSubmit}>Click me</button>
+          <button>Click me</button>
         </form>
         <div>
           {entities.map((item) => {
