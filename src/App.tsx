@@ -31,7 +31,15 @@ const App = () => {
         </form>
         <div>
           {entities.map((item) => {
-            return <DisplayCard key={item.id} name={item.name} />;
+            return (
+              <DisplayCard
+                key={item.id}
+                name={item.name}
+                spriteFront={item.sprites.front_default}
+                stats={item.stats}
+                type={item.types[0].type.name}
+              />
+            );
           })}
         </div>
       </div>
