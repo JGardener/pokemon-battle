@@ -83,22 +83,36 @@ const backgroundColor: backgroundColourType = {
 
 export const DisplayCard = (props: DisplayCardProps) => {
   return (
-    <div
-      className={style.displayCard}
-      style={{ backgroundColor: backgroundColor[props.type].color }}
-    >
-      <img src={props.spriteFront} />
-      <p>{capitaliseFirstLetter(props.name)}</p>
-      <p>{capitaliseFirstLetter(props.type)}</p>
-      <ul>
-        {props.stats.map((stat) => {
-          return (
-            <li>
-              {capitaliseFirstLetter(stat.stat.name)}: {stat.base_stat}
-            </li>
-          );
-        })}
-      </ul>
+    <div className={style.displayCard} style={{ backgroundColor: backgroundColor[props.type].color }}>
+      <div className={style.entityNameContainer}>
+        <h1 className={style.entityName}>{capitaliseFirstLetter(props.name)}</h1>
+        <p className={style.type}>{capitaliseFirstLetter(props.type)}</p>
+      </div>
+      <div className={style.statsContainer}>
+        <div className={style.stats1}>
+          <p>
+            {/* Speed */}
+            {capitaliseFirstLetter(props.stats[5].stat.name)}: {props.stats[5].base_stat}
+          </p>
+          <p>
+            {/* Attack */}
+            {capitaliseFirstLetter(props.stats[1].stat.name)}: {props.stats[1].base_stat}
+          </p>
+          <p>
+            Sp. Attack:
+            {props.stats[3].base_stat}
+          </p>
+        </div>
+        <img className={style.sprite} src={props.spriteFront} />
+        <div className={style.stats2}>
+          <p>HP: {props.stats[0].base_stat}</p>
+          <p>
+            {/* Defense */}
+            {capitaliseFirstLetter(props.stats[2].stat.name)}: {props.stats[2].base_stat}
+          </p>
+          <p>Sp. Defence: {props.stats[4].base_stat}</p>
+        </div>
+      </div>
     </div>
   );
 };
