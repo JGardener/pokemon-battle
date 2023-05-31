@@ -1,11 +1,38 @@
 .displayCard {
-  font-size: 2rem;
-  width: fit-content;
-  height: fit-content;
+  text-shadow: 1px 1px black;
+  text-align: center;
   padding: 1rem;
   margin: 1rem;
+  width: 500px;
+  height: 500px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  border-radius: 250px;
 }
 
-li {
-  list-style: none;
+.statsContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60%;
+}
+
+.stats1,
+.stats2 {
+  width: 30%;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+
+.sprite {
+  height: 180px;
+}
+
+.entityNameContainer {
+  margin-top: 5rem;
+  margin-bottom: -3.5rem;
 }
