@@ -35,7 +35,11 @@ const App = () => {
               <DisplayCard
                 key={item.id}
                 name={item.name}
-                spriteFront={item.sprites.front_default}
+                spriteFront={
+                  item.sprites.versions["generation-v"]["black-white"][
+                    "animated"
+                  ]["front_default"]
+                }
                 stats={item.stats}
                 type={item.types[0].type.name}
               />
